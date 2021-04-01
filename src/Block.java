@@ -10,7 +10,6 @@ public class Block {
     public int nonce;
 
     public Block(String data, String prevBlockHash) {
-        this.index = this.index;
         this.prevBlockHash = prevBlockHash;
         this.data = data;
         this.timeStamp = new Date().getTime();
@@ -19,7 +18,7 @@ public class Block {
 
     public String calculateHash() {
 
-        String calculatedHash = StringUtil.applySHA256(Long.toString(index) + prevBlockHash + Long.toString(timeStamp) + Integer.toString(nonce) + data);
+        String calculatedHash = StringUtil.applySHA256(prevBlockHash + Long.toString(timeStamp) + Integer.toString(nonce) + data);
         return calculatedHash;
     }
 
